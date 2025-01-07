@@ -4,13 +4,13 @@ layout: page
 ---
 ![Profile Image]({% if site.external-image %}{{ site.picture }}{% else %}{{ site.url }}/{{ site.picture }}{% endif %})
 
-<p>Strip Saints es un grupo formado en 2013. Influenciados por la era dorada
+<p>Es una banda formada en 2013. Influenciados por la era dorada
 del Hard-Rock, Strip Saints es la música hecha actitud. Desde sus inicios
 han seguido fieles a su estilo, con claras influencias de bandas como
-Guns N’ Roses, Scorpions, Santa Cruz, Kiss o Mötley Crüe.</p>
+Guns N’ Roses, Scorpions, Santa Cruz o Mötley Crüe.</p>
 	
-<p>Strip Saints lleva el espectáculo a otro nivel. Melodías como Mr. Mister
-Rockin’ o Wild N' Free presentan al espectador auténticos himnos que no
+<p>Strip Saints lleva el espectáculo a otro nivel. Melodías como Mr. Mister,
+Strip are Rockin’ o Wild N' Free presentan al espectador auténticos himnos que no
 le dejarán indiferente.</p>
 
 <h2>La Banda</h2>
