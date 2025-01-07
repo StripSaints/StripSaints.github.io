@@ -34,10 +34,12 @@ disqus:
   categories: [] # only show disqus for posts that have these categories
 
 # if you don't have any of social below, comment the line
+
+spotify: intl-es/artist/57z4szCyo6NmywryYbVlH4?si=rwPD6Xf3S72nWyxoVykqkw&nd=1&dlsi=72ee3881c8134834
+instagram: strip_saints
+youtube: @stripsaints
 facebook: stripsaintsrocks
 twitter: StripSaints
-instagram: strip_saints
-spotify: intl-es/artist/57z4szCyo6NmywryYbVlH4?si=rwPD6Xf3S72nWyxoVykqkw&nd=1&dlsi=72ee3881c8134834
 # linkedin: mylinkedin
 email: stripsaints@gmail.com
 github: StripSaints
