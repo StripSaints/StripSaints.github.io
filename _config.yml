@@ -20,7 +20,8 @@ resume: true
 resume-external: false
 resume-url: assets/2024-DOSSIER-STRIP-SAINTS.pdf
 
-url: https://stripsaints.es/
+# url: https://stripsaints.es/
+url: https://stripsaints.github.io
 # your url: https://USERNAME.github.io
 
 permalink: /:title/
