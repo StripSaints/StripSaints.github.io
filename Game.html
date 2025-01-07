@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STRIP SAINTS - NEW START GAME</title>
+  <!-- Enlace a Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      /overflow: hidden;
+      font-family: 'Press Start 2P', Arial, sans-serif; /* Fuente arcade */
+      /*font-family: Arial, sans-serif;*/
+      background: url('https://www.dropbox.com/scl/fi/5vclqi3sx45rahu8vdjxg/fondoweb.jpg?rlkey=roy4zwd4rgr6mcnehihz5qwwf&st=42d5h7ap&raw=1') no-repeat center center; /* Imagen de fondo general */
+      position: fixed; /* Aseguramos que el fondo se mantenga fijo */
+      position: relative;
+      width: 100%; /* Aseguramos que el fondo cubra todo el área */
+      height: 100%; /* Asegura que el fondo cubra la altura completa de la pantalla */
+      background-size: cover; /* La imagen se adapta, pero puede deformarse */
+    }
+    canvas {
+      display: block;
+      /*background: linear-gradient(to bottom, #87ceeb, #0099cc);*/
+      touch-action: none;  /* Impide que el navegador realice acciones predeterminadas (como el zoom) MOVIL*/
+    }
+
+    #startScreen {
+      position: absolute; /* Necesario para centrar elementos secundarios */
+      background: url('https://www.dropbox.com/scl/fi/1z3pbrpejlqpiwusasjtb/portada.png?rlkey=7qmtwy5jyqmakp80pqprulgju&st=ftr7n180&raw=1') no-repeat center center; /* Imagen de fondo */
+      top: 50%; /* Posición vertical */
+      left: 50%; /* Posición horizontal */
+      transform: translate(-50%, -50%); /* Desplazamiento para centrar */
+      display: flex; /* Mantén las propiedades flex para el contenido */
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%; /* Ajusta el ancho al 90% de la pantalla */
+      /*max-width: 800px; /* Establece un límite máximo */
+      aspect-ratio: 16/9; /* Mantén las proporciones de la imagen */
+      margin: 0; /* Centrado horizontal y vertical */
+      background-size: contain; /* La imagen siempre se mostrará entera */
+      /* border: 3px solid rgba(255, 255, 255, 0.7); /* Marco decorativo opcional */ */
+      /* border-radius: 15px; */
+      /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Sombra para resaltar */ */
+      font-family: 'Press Start 2P', Arial, sans-serif; /* Fuente arcade */
+    }
+
+    #startScreen h1, #startScreen h2, #startScreen p {
+      background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para mejorar legibilidad */
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .color-picker {
+      display: flex;
+      gap: 1rem;
+      margin-top: 20px;
+      justify-content: center;
+    }
+
+    .color-option {
+      width: 70px; /* Tamaño más grande para destacar */
+      height: 70px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 3px solid white;
+      background-size: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .color-option:hover {
+      transform: scale(1.2); /* Efecto de zoom al pasar el mouse */
+    }
+
+    #startGame {
+      margin-top: 30px;
+      font-size: 1.5rem;
+      padding: 10px 20px;
+      background: #ff4500;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-family: 'Press Start 2P', Arial, sans-serif; /* Fuente arcade */
+
+    }
+
+    #startGame:hover {
+      background: #cc3700;
+    }
+
+    #gameMessage {
+      margin: 0; /* Elimina márgenes por defecto */
+      padding: 0; /* Elimina padding por defecto */
+      text-align: center; /* Alinea el texto horizontalmente */
+      width: 100%; /* Asegura que ocupe todo el ancho del contenedor */
+      font-size: 2rem; /* Ajusta el tamaño de la fuente */
+      color: white; /* Cambia el color del texto si es necesario */
+    }
+
+    .hud, .start-screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      text-transform: uppercase;
+      font-family: 'Press Start 2P', Arial, sans-serif; /* Fuente arcade */
+    }
+
+    .hud {
+      font-size: 1.5rem;
+      pointer-events: none;
+      display: none;
+      text-transform: uppercase;
+    }
+    .lives {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      gap: 5px;
+    }
+    .heart {
+      width: 30px;
+      height: 30px;
+      background: red;
+      clip-path: polygon(50% 0%, 100% 35%, 80% 100%, 50% 80%, 20% 100%, 0% 35%);
+    }
+    .game-over {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3rem;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      text-transform: uppercase;
+      font-family: 'Press Start 2P', Arial, sans-serif; /* Fuente arcade */
+
+       /*border: 2px dashed red; /* Borde temporal para depurar*/
+
+    }
+    /*.start-screen {
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+    }*/
+    .color-picker {
+      display: flex;
+      gap: 1rem;
+    }
+    .color-option {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid white;
+    }
+    .retry-button {
+      display: none;
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      background: #ff4500;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-family: 'Press Start 2P', Arial, sans-serif; /* Fuente arcade */
+
+    /*  transform: translate(50%, 0%);*/
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    }
+
+    .retry-button:active {
+      background: #cc3700;
+    }
+
+  </style>
+</head>
+<body><!--HTML-->
+
+  <canvas id="gameCanvas"></canvas>
+  <div id="score" class="hud">Puntos: 0</div>
+  <div class="lives" id="livesContainer"></div>
+  <div id="gameOver" class="game-over">
+    ¡Juego Terminado!
+    <p id="gameMessage"></p>
+    <button id="retryButton" class="retry-button">Reintentar</button>
+  </div>
+  <div id="startScreen" class="start-screen">
+    <!--<h1>STRIP SAINTS</h1>
+    <h1>NEW START</h1>
+    <h2>THE GAME</h2>-->
+    <p>Selecciona tu jugador</p>
+    <div class="color-picker"> <!--Seleccion de Skin del jugador-->
+      <div class="color-option" style="background: url('https://www.dropbox.com/scl/fi/qyajc9vkl1heztsx4tih8/skin1.png?rlkey=arns82vkpdj37px1tfmw6r7p6&st=geu8xwol&raw=1'); background-size: cover;" data-skin="https://www.dropbox.com/scl/fi/qyajc9vkl1heztsx4tih8/skin1.png?rlkey=arns82vkpdj37px1tfmw6r7p6&st=geu8xwol&raw=1"></div>
+      <div class="color-option" style="background: url('https://www.dropbox.com/scl/fi/ayf1gt42qdogd69q8qf1o/skin2.png?rlkey=bc97wh5pnquag1blrse4qnp89&st=aid28n1d&raw=1'); background-size: cover;" data-skin="https://www.dropbox.com/scl/fi/ayf1gt42qdogd69q8qf1o/skin2.png?rlkey=bc97wh5pnquag1blrse4qnp89&st=aid28n1d&raw=1"></div>
+      <div class="color-option" style="background: url('https://www.dropbox.com/scl/fi/n5jr6ijoa16iab4xzsiyt/skin3.png?rlkey=gngls2vqw1fzk5i6tz56hjya8&st=b0rtgdni&raw=1'); background-size: cover;" data-skin="https://www.dropbox.com/scl/fi/n5jr6ijoa16iab4xzsiyt/skin3.png?rlkey=gngls2vqw1fzk5i6tz56hjya8&st=b0rtgdni&raw=1"></div>
+      <div class="color-option" style="background: url('https://www.dropbox.com/scl/fi/5aiygpfaf4uzy7upmp8nl/skin4.png?rlkey=b84yord1vsnjuhre74o1b45m9&st=chp3ezhn&raw=1'); background-size: cover;" data-skin="https://www.dropbox.com/scl/fi/5aiygpfaf4uzy7upmp8nl/skin4.png?rlkey=b84yord1vsnjuhre74o1b45m9&st=chp3ezhn&raw=1"></div>
+    </div>
+    <p></p>
+    <button id="startGame">Comenzar Juego</button>
+  </div>
+
+  <script>  //JavaScript
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const scoreDisplay = document.getElementById('score');
+    const gameOverText = document.getElementById('gameOver');
+    const gameMessage = document.getElementById('gameMessage');
+    const retryButton = document.getElementById('retryButton');
+    const startScreen = document.getElementById('startScreen');
+    const colorOptions = document.querySelectorAll('.color-option');
+    const startGameButton = document.getElementById('startGame');
+    const livesContainer = document.getElementById('livesContainer');
+
+    //Skin Enemigo
+    const enemyImage = new Image();
+    enemyImage.src = 'https://www.dropbox.com/scl/fi/60rdv4jra2xb7rh2z14mj/enemigo.png?rlkey=we8x2mzkiquded9n78a656if1&st=nf7vnkvd&raw=1';
+
+
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const player = {
+      x: canvas.width / 3,
+      y: canvas.height - 100,
+      width: 50,
+      height: 50,
+      color: 'red',
+      lane: 1,
+      skin: 'https://www.dropbox.com/scl/fi/pmmr2u9vc3aopjnntqh5j/vida.png?rlkey=bzsrmpixa2s9t3oe0oypeb6qx&st=61a884i5&raw=1', // Skin predeterminada
+    };
+
+    const obstacles = [];
+    const obstacleWidth = 50;
+    const obstacleHeight = 50;
+    const minObstacleSpacing = player.height * 3;
+    let lastObstacleLane = null;
+
+    let gameSpeed = 4;
+    let animationId;
+    let isGameOver = false;
+    let score = 0;
+    let moveCount = 0;
+    let lives = 4;
+
+    const backgroundMusic = new Audio('https://www.dropbox.com/scl/fi/4xp6l9hhicgzoaqe4nqlx/00-New-Start-PreMezcla.mp3?rlkey=o2oxwyl3o0sv3niflr0oj2v41&st=83oaa2kz&raw=1'); // Cambia la ruta al archivo de audio
+    backgroundMusic.loop = false;
+
+    function createObstacle() {
+      if (obstacles.length > 0 && obstacles[obstacles.length - 1].y > canvas.height - minObstacleSpacing) {
+        return;
+      }
+
+      let lane;
+      do {
+        lane = Math.floor(Math.random() * 3);
+      } while (lane === lastObstacleLane);
+
+      lastObstacleLane = lane;
+      const x = (canvas.width / 3) * lane + (canvas.width / 6 - obstacleWidth / 2);
+      obstacles.push({ x, y: -obstacleHeight, width: obstacleWidth, height: obstacleHeight });
+    }
+
+    //Skin Jugador
+    const playerImage = new Image();
+    playerImage.src = player.skin; // Usar la ruta seleccionada
+    function drawPlayer() {
+      ctx.fillStyle = player.color;
+      ctx.drawImage(playerImage, player.x, player.y, player.width, player.height);//dibuja la skin del jugador
+    }
+
+    function drawObstacles() {
+      obstacles.forEach((obstacle) => {
+    ctx.drawImage(enemyImage, obstacle.x, obstacle.y, obstacle.width, obstacle.height);//Dibuja al enemigo con la imagen proporcionada
+    obstacle.y += gameSpeed;
+      });
+
+      while (obstacles.length > 0 && obstacles[0].y > canvas.height) {
+        obstacles.shift();
+        score++;
+        scoreDisplay.textContent = `Puntos: ${score}`;
+      }
+    }
+
+    function detectCollision() {
+      obstacles.forEach((obstacle, index) => {
+        if (
+          player.x < obstacle.x + obstacle.width &&
+          player.x + player.width > obstacle.x &&
+          player.y < obstacle.y + obstacle.height &&
+          player.y + player.height > obstacle.y
+        ) {
+          obstacles.splice(index, 1);
+          loseLife();
+        }
+      });
+    }
+
+    function loseLife() {
+      lives--;
+      updateLives();
+      if (lives === 0) {
+        endGame(false);
+      }
+    }
+
+    function updateLives() {
+      livesContainer.innerHTML = '';
+      for (let i = 0; i < lives; i++) {
+        const heart = document.createElement('img');
+        heart.src = 'https://www.dropbox.com/scl/fi/pmmr2u9vc3aopjnntqh5j/vida.png?rlkey=bzsrmpixa2s9t3oe0oypeb6qx&st=61a884i5&raw=1';
+        heart.style.width = '30px';
+        heart.style.height = '30px';
+        livesContainer.appendChild(heart);
+      }
+    }
+
+    function movePlayer(direction) {
+      const laneWidth = canvas.width / 3;
+      if (direction === 'left' && player.lane > 0) {
+        player.lane--;
+        moveCount++;
+      } else if (direction === 'right' && player.lane < 2) {
+        player.lane++;
+        moveCount++;
+      }
+      player.x = laneWidth * player.lane + (laneWidth / 2 - player.width / 2);
+    }
+
+    function endGame(won) {
+      cancelAnimationFrame(animationId);
+      isGameOver = true;
+      gameOverText.style.display = 'block';
+      if (won) {
+        if (moveCount === 0) {
+          gameMessage.textContent = 'Enhorabuena, encontraste el bug!';
+        } else {
+          gameMessage.textContent = '¡Ganaste!';
+        }
+      } else {
+        gameMessage.textContent = '¡Perdiste!';
+      }
+      retryButton.style.display = 'block';
+      backgroundMusic.pause();
+    }
+
+    function resetGame() {
+      obstacles.length = 0;
+      score = 0;
+      moveCount = 0;
+      lives = 4;
+      gameSpeed = 4;
+      isGameOver = false;
+      player.lane = 1;
+      player.x = canvas.width / 3;
+      lastObstacleLane = null;
+      scoreDisplay.textContent = `Puntos: ${score}`;
+      updateLives();
+      startScreen.style.display = 'flex';
+      gameOverText.style.display = 'none';
+      retryButton.style.display = 'none';
+    }
+
+    function gameLoop() {
+      if (isGameOver) return;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawPlayer();
+      drawObstacles();
+      detectCollision();
+
+      if (Math.random() < 0.02) createObstacle();
+      animationId = requestAnimationFrame(gameLoop);
+    }
+
+    backgroundMusic.addEventListener('ended', () => {
+      endGame(true);
+    });
+
+    startGameButton.addEventListener('click', () => {
+      if (!player.skin) {
+        alert('Por favor, selecciona una skin antes de comenzar el juego.');
+        return;
+      }
+      playerImage.src = player.skin; // Configura la imagen seleccionada
+      startScreen.style.display = 'none';
+      scoreDisplay.style.display = 'block';
+      backgroundMusic.play();
+      updateLives();
+      gameLoop();
+    });
+
+    retryButton.addEventListener('click', resetGame);
+
+    colorOptions.forEach((option) => {
+      option.addEventListener('click', () => {
+        player.skin = option.getAttribute('data-skin');//selecciona la skin en lugar del color
+        colorOptions.forEach((o) => (o.style.border = '2px solid white'));
+        option.style.border = '4px solid gold';
+      });
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (isGameOver) return;
+      if (e.key === 'ArrowLeft') movePlayer('left');
+      if (e.key === 'ArrowRight') movePlayer('right');
+    });
+    //MOVIL
+    window.addEventListener('touchstart', (e) => {
+      if (isGameOver) return;
+
+      const touchX = e.touches[0].clientX;  // Coordenada X del primer toque
+      const screenWidth = canvas.width;
+
+      // Determinamos en qué zona tocó el usuario:
+      if (touchX < screenWidth / 3) {
+        movePlayer('left');  // Mover al carril izquierdo
+      } else if (touchX > (screenWidth / 3) * 2) {
+        movePlayer('right');  // Mover al carril derecho
+      }
+      // Si toca en el centro, el jugador se queda en el carril del medio
+    });
+  </script>
+</body>
+</html>
