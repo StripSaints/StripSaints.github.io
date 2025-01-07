@@ -4,42 +4,40 @@ layout: page
 ---
 ![Profile Image]({% if site.external-image %}{{ site.picture }}{% else %}{{ site.url }}/{{ site.picture }}{% endif %})
 
-<p>Lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Strip Saints es un grupo formado en 2013. Influenciados por la era dorada
+del Hard-Rock, Strip Saints es la música hecha actitud. Desde sus inicios
+han seguido fieles a su estilo, con claras influencias de bandas como
+Guns N’ Roses, Scorpions, Santa Cruz, Kiss o Mötley Crüe.
+	
+Strip Saints lleva el espectáculo a otro nivel. Melodías como Mr. Mister
+Rockin’ o Wild ‘n’ Free presentan al espectador auténticos himnos que no
+le dejarán indiferente.</p>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<h2>Discografía</h2>
 
-<h2>Skills</h2>
-
-<ul class="skill-list">
-	<li>HTML - Jade - Haml - Erb</li>
-	<li>Responsive (Mobile First)</li>
-	<li>CSS (Stylus, Sass, Less)</li>
-	<li>Css Frameworks (Bootstrap, Foundation)</li>
-	<li>Javascript (Design Patterns, Tests)</li>
-	<li>AngularJS - ReactJS</li>
-	<li>Grunt - Gulp - Yeoman</li>
-	<li>Git</li>
-	<li>PHP</li>
-	<li>Python</li>
-	<li>MySQL - MongoDB</li>
-	<li>Scrum and Kanban</li>
-	<li>TDD e Continuous Integration</li>
+<ul class="discografía-list">
+	<li>Singles</li>
+		<ul>
+			<li>Mr. Mister</li>
+			<li>Fuck Everything</li>
+			<li>Wild N' Free</li>
+		</ul>
+	<li>EPs</li>
+		<ul>
+			<li>Wild N' Free</li>
+			<ul>
+				<li>Strip Are Rockin'</li>
+				<li>Search the Way to the Freedom</li>
+				<li>The Ghost Driver</li>
+				<li>We Need More</li>
+			</ul>
+		</ul>
 </ul>
 
-<h2>Projects</h2>
+<h2>Links</h2>
 
 <ul>
-	<li><a href="https://github.com/">Lorem Lorem</a></li>
-	<li><a href="https://github.com/">Ipsum Dolor</a></li>
-	<li><a href="https://github.com/">Dolor Lorem</a></li>
+	<li><a href="https://open.spotify.com/intl-es/artist/57z4szCyo6NmywryYbVlH4?si=MM-izV8KQw-tPwtoRf15Mw">Spotify</a></li>
+	<li><a href="https://open.spotify.com/intl-es/track/403dzaj8tjN9WZenBJR2HY?si=0b72d8b1fd074ee8">Nuestro Último Tema en Spotify!</a></li>
+	<li><a href="https://www.instagram.com/strip_saints/">Siguenos en Instragram</a></li>
 </ul>
