@@ -16,13 +16,13 @@ le dejarán indiferente.</p>
 <h2>La Banda</h2>
 
 <h3>Rikky Lizz - Lead Guitars and Vocals</h3>
-<img src="assets/images/Rikky.jpg" alt="Rikky" />
+<img src="./assets/images/Rikky.jpg" alt="Rikky" />
 <h3>Tommy Guns - Lead Guitars and Vocals</h3>
-<img src="assets/images/Tommy.jpg" alt="Tommy" />
+<img src="./assets/images/Tommy.jpg" alt="Tommy" />
 <h3>Teclarra - Bass and Back Vocals</h3>
-<img src="assets/images/Teclarra.jpg" alt="Teclarra" />
+<img src="./assets/images/Teclarra.jpg" alt="Teclarra" />
 <h3>Adri - Drums</h3>
-<img src="assets/images/Adri.jpg" alt="Adri" />
+<img src="./assets/images/Adri.jpg" alt="Adri" />
 
 <h2>Discografía</h2>
 
