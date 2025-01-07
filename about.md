@@ -16,13 +16,13 @@ le dejarán indiferente.</p>
 <h2>La Banda</h2>
 
 <h3>Rikky Lizz - Lead Guitars and Vocals</h3>
-<img src="assets/images/Rikky.jpg" alt="Rikky" />
+<img src="https://github.com/StripSaints/StripSaints.github.io/blob/gh-pages/assets/images/Rikky.jpg?raw=true" alt="Rikky" />
 <h3>Tommy Guns - Lead Guitars and Vocals</h3>
-<img src="assets/images/Tommy.jpg" alt="Tommy" />
+<img src="https://github.com/StripSaints/StripSaints.github.io/blob/gh-pages/assets/images/Tommy.jpg?raw=true" alt="Tommy" />
 <h3>Teclarra - Bass and Back Vocals</h3>
-<img src="assets/images/Teclarra.jpg" alt="Teclarra" />
+<img src="https://github.com/StripSaints/StripSaints.github.io/blob/gh-pages/assets/images/Teclarra.jpg?raw=true" alt="Teclarra" />
 <h3>Adri - Drums</h3>
-<img src="assets/images/Adri.jpg" alt="Adri" />
+<img src="https://github.com/StripSaints/StripSaints.github.io/blob/gh-pages/assets/images/Adri.jpg?raw=true" alt="Adri" />
 
 <h2>Discografía</h2>
 
