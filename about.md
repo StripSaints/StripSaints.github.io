@@ -10,7 +10,7 @@ han seguido fieles a su estilo, con claras influencias de bandas como
 Guns N’ Roses, Scorpions, Santa Cruz, Kiss o Mötley Crüe.
 	
 Strip Saints lleva el espectáculo a otro nivel. Melodías como Mr. Mister
-Rockin’ o Wild ‘n’ Free presentan al espectador auténticos himnos que no
+Rockin’ o Wild N' Free presentan al espectador auténticos himnos que no
 le dejarán indiferente.</p>
 
 <h2>La Banda</h2>
@@ -23,6 +23,7 @@ le dejarán indiferente.</p>
 <img src="https://github.com/StripSaints/StripSaints.github.io/blob/gh-pages/assets/images/Teclarra.jpg?raw=true" alt="Teclarra" />
 <h3>Adri - Drums</h3>
 <img src="https://github.com/StripSaints/StripSaints.github.io/blob/gh-pages/assets/images/Adri.jpg?raw=true" alt="Adri" />
+
 
 <h2>Discografía</h2>
 
