@@ -18,7 +18,7 @@ dark-theme: true
 # and specify source (external or local).
 resume: true
 resume-external: false
-resume-url: https://google.com/?q=my+resume
+resume-url: assets/2024-DOSSIER-STRIP-SAINTS.pdf
 
 url: https://StripSaints.github.io
 # your url: https://USERNAME.github.io
