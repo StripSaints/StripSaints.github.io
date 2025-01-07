@@ -3,7 +3,7 @@ title: Strip Saints
 bio: Hard Rock band form Madrid-Spain
 
 # twitter summary info
-description: Strip Saints' web page
+description: Strip Saints' webpage
 
 # if it's an external image, update below for true
 # better with square images
@@ -37,9 +37,11 @@ disqus:
 facebook: stripsaintsrocks
 twitter: StripSaints
 instagram: strip_saints
+spotify: Strip Saints
 # linkedin: mylinkedin
 # github: mygithub
 email: stripsaints@gmail.com
+
 
 authors:
   stripsaints:
