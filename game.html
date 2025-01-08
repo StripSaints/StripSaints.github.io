@@ -10,7 +10,7 @@
   <style>
     body {
       margin: 0;
-      /overflow: hidden;
+      overflow: hidden;
       font-family: 'Press Start 2P', Arial, sans-serif; /* Fuente arcade */
       /*font-family: Arial, sans-serif;*/
       background: url('https://raw.githubusercontent.com/StripSaints/StripSaints.github.io/refs/heads/gh-pages/assetsGame/images/fondoweb.jpg') no-repeat center center; /* Imagen de fondo general */
@@ -101,6 +101,17 @@
       font-size: 2rem; /* Ajusta el tamaño de la fuente */
       color: white; /* Cambia el color del texto si es necesario */
     }
+
+    #mobileMessage {
+            color: #fdb72e;
+            font-size: 18px;
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            top: 5%;
+            left: 0;
+            font-family: 'Press Start 2P', Arial, sans-serif; /* Fuente arcade */
+        }
 
     .start-screen {
       position: absolute;
@@ -281,15 +292,16 @@
 
    <!-- Contenedor de instrucciones -->
    <div id="instructions-popup">
-       <p>Instrucciones de Juego:</p>
+       <p>Instrucciones de Juego:<br /><br /></p>
        <ul>
            <li>¡Esquiva los enemigos que bajan de la pantalla y evita que los 20s acaben contigo!</li>
            <li>Hay 3 carriles por los que te puedes mover para esquivarlos</li>
            <li>Para ello puedes usar las flechas izquiera y derecha</li>
            <li>Desde un smartphone puede hacer tap en los laterales para moverte</li>
        </ul>
-       <p>¡Suerte! ¡Y no te olvides de postear en redes sociales tu puntuación!</p>
+       <p><br />¡Suerte! ¡Y no te olvides de postear en redes sociales tu puntuación!</p>
        <button onclick="toggleInstructions()">Cerrar</button>
+       <p style="color: #fdb72e; font-size: 13px;"><br />© 2025 Strip Saints</p>
    </div>
 
   <canvas id="gameCanvas"></canvas>
@@ -300,7 +312,11 @@
     <p id="gameMessage"></p>
     <button id="retryButton" class="retry-button">Reintentar</button>
   </div>
+  <p id="mobileMessage">© 2025 Strip Saints</p>
+
+
   <div id="startScreen" class="start-screen">
+
     <!--<h1>STRIP SAINTS</h1>
     <h1>NEW START</h1>
     <h2>THE GAME</h2>-->
@@ -313,6 +329,8 @@
     </div>
     <p></p>
     <button id="startGame">Comenzar Juego</button>
+    <!--<div id="messageContainer"> </div> <!-- muestra mensaje cuando es un MOVIL-->
+
   </div>
 
   <script>  //JavaScript
@@ -332,8 +350,6 @@
     //Skin Enemigo
     const enemyImage = new Image();
     enemyImage.src = 'https://raw.githubusercontent.com/StripSaints/StripSaints.github.io/refs/heads/gh-pages/assetsGame/images/enemigo.png';
-
-
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -391,8 +407,10 @@
     function toggleInstructions() {
       if (popup.style.display === 'block') {
           popup.style.display = 'none';
+          startScreen.style.display = 'flex';
       } else {
           popup.style.display = 'block';
+          startScreen.style.display = 'none';
       }
     }
 
@@ -549,6 +567,28 @@
       }
       // Si toca en el centro, el jugador se queda en el carril del medio
     });
+
+    // //Mensaje si es un MOVIL
+    // function isMobileDevice() {
+    //     // Detecta si el dispositivo es móvil basado en el ancho de la pantalla o el agente de usuario.
+    //     return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || window.innerWidth <= 768;
+    // }
+    //
+    // function displayMessage() {
+    //     const container = document.getElementById('messageContainer');
+    //             // Crear el mensaje dependiendo del dispositivo
+    //     if (isMobileDevice()) {
+    //         const message = document.createElement('p');
+    //         message.id = 'mobileMessage';
+    //         message.textContent = '© 2025 Strip Saints';
+    //         message.style.backgroundColor = "transparent";
+    //         container.appendChild(message);
+    //     }
+    // }
+    //
+    // // Llama a la función al cargar la página
+    // displayMessage();
+
   </script>
 </body>
 </html>
