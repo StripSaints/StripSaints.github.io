@@ -312,11 +312,11 @@
     <p id="gameMessage"></p>
     <button id="retryButton" class="retry-button">Reintentar</button>
   </div>
-  <p id="mobileMessage">© 2025 Strip Saints</p>
+
 
 
   <div id="startScreen" class="start-screen">
-
+    <p id="mobileMessage" style="background-color:transparent" >© 2025 Strip Saints</p>
     <!--<h1>STRIP SAINTS</h1>
     <h1>NEW START</h1>
     <h2>THE GAME</h2>-->
@@ -329,7 +329,6 @@
     </div>
     <p></p>
     <button id="startGame">Comenzar Juego</button>
-    <!--<div id="messageContainer"> </div> <!-- muestra mensaje cuando es un MOVIL-->
 
   </div>
 
@@ -567,27 +566,6 @@
       }
       // Si toca en el centro, el jugador se queda en el carril del medio
     });
-
-    // //Mensaje si es un MOVIL
-    // function isMobileDevice() {
-    //     // Detecta si el dispositivo es móvil basado en el ancho de la pantalla o el agente de usuario.
-    //     return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || window.innerWidth <= 768;
-    // }
-    //
-    // function displayMessage() {
-    //     const container = document.getElementById('messageContainer');
-    //             // Crear el mensaje dependiendo del dispositivo
-    //     if (isMobileDevice()) {
-    //         const message = document.createElement('p');
-    //         message.id = 'mobileMessage';
-    //         message.textContent = '© 2025 Strip Saints';
-    //         message.style.backgroundColor = "transparent";
-    //         container.appendChild(message);
-    //     }
-    // }
-    //
-    // // Llama a la función al cargar la página
-    // displayMessage();
 
   </script>
 </body>
