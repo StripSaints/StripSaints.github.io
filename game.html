@@ -26,6 +26,7 @@
       touch-action: none;  /* Impide que el navegador realice acciones predeterminadas (como el zoom) MOVIL*/
     }
 
+
     #startScreen {
       position: absolute; /* Necesario para centrar elementos secundarios */
       background: url('https://raw.githubusercontent.com/StripSaints/StripSaints.github.io/refs/heads/gh-pages/assetsGame/images/portada.png') no-repeat center center; /* Imagen de fondo */
@@ -118,7 +119,7 @@
     }
 
     .hud {
-      font-size: 1.5rem;
+      font-size: 1rem;
       pointer-events: none;
       display: none;
       text-transform: uppercase;
@@ -131,8 +132,8 @@
       gap: 5px;
     }
     .heart {
-      width: 30px;
-      height: 30px;
+      width: 2rem;
+      height: 2rem;
       background: red;
       clip-path: polygon(50% 0%, 100% 35%, 80% 100%, 50% 80%, 20% 100%, 0% 35%);
     }
@@ -141,7 +142,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 3rem;
+      font-size: 2.5rem;
       color: white;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
       display: none;
@@ -191,9 +192,98 @@
       background: #cc3700;
     }
 
+    /* Botón de ayuda */
+    #help-button {
+        position: absolute;
+        top: 10px;
+        right: 50%;
+        width: 2rem;
+        height: 2rem;
+        background-color: rgba(255, 255, 255, 0.8);
+        color: #282c34;
+        font-size: 1rem;
+        font-weight: bold;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1000;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border: none;
+        transition: background-color 0.3s;
+    }
+
+    #help-button:hover {
+        background-color: #fdb72e;
+    }
+
+    /* Popup de instrucciones */
+    #instructions-popup {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        display: none; /* Oculto por defecto */
+        z-index: 1000;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        width: 80%;
+        max-width: 400px;
+        color:
+    }
+
+    #instructions-popup p, #instructions-popup ul {
+        margin: 10px 0;
+    }
+
+    #instructions-popup button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.9);
+        color: #282c34;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    #instructions-popup button:hover {
+        background-color: #fdb72e;
+    }
+
+    #instructions-popup p {
+      color: #ffffff; /* Cambia el color de los párrafos */
+    }
+
+    #instructions-popup ul {
+        color: #fdb72e; /* Cambia el color de las listas */
+    }
+
   </style>
 </head>
 <body><!--HTML-->
+
+  <!-- Botón de ayuda -->
+   <div id="help-button" onclick="toggleInstructions()">?</div>
+
+   <!-- Contenedor de instrucciones -->
+   <div id="instructions-popup">
+       <p>Instrucciones de Juego:</p>
+       <ul>
+           <li>¡Esquiva los enemigos que bajan de la pantalla y evita que los 20s acaben contigo!</li>
+           <li>Hay 3 carriles por los que te puedes mover para esquivarlos</li>
+           <li>Para ello puedes usar las flechas izquiera y derecha</li>
+           <li>Desde un smartphone puede hacer tap en los laterales para moverte</li>
+       </ul>
+       <p>¡Suerte! ¡Y no te olvides de postear en redes sociales tu puntuación!</p>
+       <button onclick="toggleInstructions()">Cerrar</button>
+   </div>
 
   <canvas id="gameCanvas"></canvas>
   <div id="score" class="hud">Puntos: 0</div>
@@ -288,6 +378,16 @@
       ctx.drawImage(playerImage, player.x, player.y, player.width, player.height);//dibuja la skin del jugador
     }
 
+    //Botón de ayuda
+    function toggleInstructions() {
+      const popup = document.getElementById('instructions-popup');
+      if (popup.style.display === 'block') {
+          popup.style.display = 'none';
+      } else {
+          popup.style.display = 'block';
+      }
+    }
+
     function drawObstacles() {
       obstacles.forEach((obstacle) => {
     ctx.drawImage(enemyImage, obstacle.x, obstacle.y, obstacle.width, obstacle.height);//Dibuja al enemigo con la imagen proporcionada
@@ -328,8 +428,8 @@
       for (let i = 0; i < lives; i++) {
         const heart = document.createElement('img');
         heart.src = 'https://raw.githubusercontent.com/StripSaints/StripSaints.github.io/refs/heads/gh-pages/assetsGame/images/vida.png';
-        heart.style.width = '30px';
-        heart.style.height = '30px';
+        heart.style.width = '3rem';
+        heart.style.height = '3rem';
         livesContainer.appendChild(heart);
       }
     }
