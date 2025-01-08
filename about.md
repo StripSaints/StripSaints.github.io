@@ -8,7 +8,9 @@ layout: page
 del Hard-Rock, Strip Saints es la música hecha actitud. Desde sus inicios
 han seguido fieles a su estilo, con claras influencias de bandas como
 Guns N’ Roses, Scorpions, Santa Cruz o Mötley Crüe.</p>
-	
+
+<img src="https://github.com/StripSaints/StripSaints.github.io/blob/gh-pages/assets/images/about.jpg?raw=true" alt="Rikky" />
+ 
 <p>Strip Saints lleva el espectáculo a otro nivel. Melodías como Mr. Mister,
 Strip are Rockin’ o Wild N' Free presentan al espectador auténticos himnos que no
 le dejarán indiferente.</p>
