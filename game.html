@@ -306,10 +306,10 @@
     <h2>THE GAME</h2>-->
     <p>Selecciona tu jugador</p>
     <div class="color-picker"> <!--Seleccion de Skin del jugador-->
-      <div class="color-option" style="background: url('https://raw.githubusercontent.com/StripSaints/StripSaints.github.io/refs/heads/gh-pages/assetsGame/images/skin1.png'); background-size: cover;" data-skin="https://www.dropbox.com/scl/fi/qyajc9vkl1heztsx4tih8/skin1.png?rlkey=arns82vkpdj37px1tfmw6r7p6&st=geu8xwol&raw=1"></div>
-      <div class="color-option" style="background: url('https://raw.githubusercontent.com/StripSaints/StripSaints.github.io/refs/heads/gh-pages/assetsGame/images/skin2.png'); background-size: cover;" data-skin="https://www.dropbox.com/scl/fi/ayf1gt42qdogd69q8qf1o/skin2.png?rlkey=bc97wh5pnquag1blrse4qnp89&st=aid28n1d&raw=1"></div>
-      <div class="color-option" style="background: url('https://raw.githubusercontent.com/StripSaints/StripSaints.github.io/refs/heads/gh-pages/assetsGame/images/skin3.png'); background-size: cover;" data-skin="https://www.dropbox.com/scl/fi/n5jr6ijoa16iab4xzsiyt/skin3.png?rlkey=gngls2vqw1fzk5i6tz56hjya8&st=b0rtgdni&raw=1"></div>
-      <div class="color-option" style="background: url('https://raw.githubusercontent.com/StripSaints/StripSaints.github.io/refs/heads/gh-pages/assetsGame/images/skin4.png'); background-size: cover;" data-skin="https://www.dropbox.com/scl/fi/5aiygpfaf4uzy7upmp8nl/skin4.png?rlkey=b84yord1vsnjuhre74o1b45m9&st=chp3ezhn&raw=1"></div>
+      <div class="color-option" style="background: url('https://raw.githubusercontent.com/StripSaints/StripSaints.github.io/refs/heads/gh-pages/assetsGame/images/skin1.png'); background-size: cover;" data-skin="https://raw.githubusercontent.com/StripSaints/StripSaints.github.io/refs/heads/gh-pages/assetsGame/images/skin1.png"></div>
+      <div class="color-option" style="background: url('https://raw.githubusercontent.com/StripSaints/StripSaints.github.io/refs/heads/gh-pages/assetsGame/images/skin2.png'); background-size: cover;" data-skin="https://raw.githubusercontent.com/StripSaints/StripSaints.github.io/refs/heads/gh-pages/assetsGame/images/skin2.png"></div>
+      <div class="color-option" style="background: url('https://raw.githubusercontent.com/StripSaints/StripSaints.github.io/refs/heads/gh-pages/assetsGame/images/skin3.png'); background-size: cover;" data-skin="https://raw.githubusercontent.com/StripSaints/StripSaints.github.io/refs/heads/gh-pages/assetsGame/images/skin3.png"></div>
+      <div class="color-option" style="background: url('https://raw.githubusercontent.com/StripSaints/StripSaints.github.io/refs/heads/gh-pages/assetsGame/images/skin4.png'); background-size: cover;" data-skin="https://raw.githubusercontent.com/StripSaints/StripSaints.github.io/refs/heads/gh-pages/assetsGame/images/skin4.png"></div>
     </div>
     <p></p>
     <button id="startGame">Comenzar Juego</button>
@@ -340,7 +340,7 @@
 
     const player = {
       x: canvas.width / 3,
-      y: canvas.height - 200,
+      y: canvas.height - 100,
       width: 50,
       height: 50,
       color: 'red',
@@ -412,10 +412,10 @@
     function detectCollision() {
       obstacles.forEach((obstacle, index) => {
         if (
-          player.x < obstacle.x + obstacle.width &&
-          player.x + player.width > obstacle.x &&
-          player.y < obstacle.y + obstacle.height &&
-          player.y + player.height > obstacle.y
+          player.x < obstacle.x + obstacle.width-15 &&
+          player.x + player.width-15 > obstacle.x &&
+          player.y < obstacle.y + obstacle.height-15 &&
+          player.y + player.height-15 > obstacle.y
         ) {
           obstacles.splice(index, 1);
           loseLife();
@@ -436,8 +436,8 @@
       for (let i = 0; i < lives; i++) {
         const heart = document.createElement('img');
         heart.src = 'https://raw.githubusercontent.com/StripSaints/StripSaints.github.io/refs/heads/gh-pages/assetsGame/images/vida.png';
-        heart.style.width = '2rem';
-        heart.style.height = '2rem';
+        heart.style.width = '30px';
+        heart.style.height = '30px';
         livesContainer.appendChild(heart);
       }
     }
