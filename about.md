@@ -32,6 +32,7 @@ le dejarán indiferente.</p>
 <ul class="discografía-list">
 	<li>Singles</li>
 		<ul>
+			<li>New Startr</li>
 			<li>Mr. Mister</li>
 			<li>Fuck Everything</li>
 			<li>Wild N' Free</li>
@@ -48,10 +49,18 @@ le dejarán indiferente.</p>
 		</ul>
 </ul>
 
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/2TAu7byOtGL0d18ff2SwFb?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+<h2>Videoclips</h2>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0K3uOEfWKgg?si=55wXQYV8HSiWsoyn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
 <h2>Links</h2>
 
 <ul>
+	<li><a href="https://www.youtube.com/watch?v=0K3uOEfWKgg&ab_channel=StripSaintsBand">New Start - Official Music Video</a></li>
 	<li><a href="https://open.spotify.com/intl-es/artist/57z4szCyo6NmywryYbVlH4?si=MM-izV8KQw-tPwtoRf15Mw">Spotify</a></li>
-	<li><a href="https://open.spotify.com/intl-es/track/403dzaj8tjN9WZenBJR2HY?si=0b72d8b1fd074ee8">Nuestro Último Tema en Spotify!</a></li>
+	<li><a href="https://open.spotify.com/intl-es/track/7puhCv0QEMgIGFI0Pt1uSx?si=0a9f6b92704c46eb">Nuestro Último Tema en Spotify!</a></li>
 	<li><a href="https://www.instagram.com/strip_saints/">Siguenos en Instragram</a></li>
 </ul>
